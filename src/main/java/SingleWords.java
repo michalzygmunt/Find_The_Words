@@ -22,7 +22,7 @@ public class SingleWords {
     }
 
     public Set<String> splitWord() {
-        wordList = file.readEpisode(0);
+        wordList = file.readEpisode(1);
 
         for (int i = 0; i < wordList.size(); i++) {
             String[] s = wordList.get(i).split("\\s");

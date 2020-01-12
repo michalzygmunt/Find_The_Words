@@ -41,8 +41,10 @@ public class DikiTranslation {
         //    webSitesLinks.forEach(link -> System.out.println(link.text()));
 
             //ile dodac slowek przetlumaczonych, domyslnie 3
-            if(webSitesLinks.size()<3)
-                return words;
+            if(webSitesLinks.size()<3) {
+                System.out.println("words less than 3");
+                   return words;
+            }
             for (int i = 0; i < 3; i++) {
 
                 words.add(webSitesLinks.get(i).text());

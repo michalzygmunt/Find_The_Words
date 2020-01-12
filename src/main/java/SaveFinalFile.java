@@ -11,7 +11,7 @@ public class SaveFinalFile {
         translation = new HashMap<>();
     }
 
-    public void saveToFile(){
+    public void saveToFile() throws InterruptedException {
         //pobranie instancji z hashmapa
         collectWords = ReadSplitWordsFile.readFile();
         translation = collectWords.getTranslation();

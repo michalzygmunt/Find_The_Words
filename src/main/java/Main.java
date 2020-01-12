@@ -5,9 +5,10 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InterruptedException {
 
         List<String> lista = new ArrayList<>();
         Subtitles subtitles = new Subtitles();
@@ -18,10 +19,11 @@ public class Main {
     //    singleWords.getWordList(1).forEach(System.out::println);
        // singleWords.convertToSet();
 
-
+    //tu dziala program
     singleWords.saveSplitWordsToFile();
     SaveFinalFile saveFinalFile = new SaveFinalFile();
     saveFinalFile.saveToFile();
+
 
 
 

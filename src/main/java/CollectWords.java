@@ -24,13 +24,17 @@ public class CollectWords {
     }
 
     public void addTranslation(DikiTranslation dikiTranslation) {
-        String searchText = dikiTranslation.getWords().get(0);
-        //kopiowanie listy uzywajac strumieni, opuszczajac pierwszy element, czyli nasz searchText
-        List<String> copyWords = dikiTranslation.getWords().stream()
-                .skip(1)
-                .collect(Collectors.toList());
+        try {
+            String searchText = dikiTranslation.getWords().get(0);
+            //kopiowanie listy uzywajac strumieni, opuszczajac pierwszy element, czyli nasz searchText
+            List<String> copyWords = dikiTranslation.getWords().stream()
+                    .skip(1)
+                    .collect(Collectors.toList());
 
-        addToHashMap(searchText,copyWords);
+            addToHashMap(searchText, copyWords);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
