@@ -39,9 +39,15 @@ public class DikiTranslation {
             }
 
         //    webSitesLinks.forEach(link -> System.out.println(link.text()));
+
+            //ile dodac slowek przetlumaczonych, domyslnie 3
+            if(webSitesLinks.size()<3)
+                return words;
             for (int i = 0; i < 3; i++) {
+
                 words.add(webSitesLinks.get(i).text());
             }
+           // System.out.println(words);
             return words;
         } catch (IOException e) {
             e.printStackTrace();

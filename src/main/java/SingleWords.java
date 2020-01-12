@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SingleWords {
     ReadFile file;
@@ -24,29 +22,29 @@ public class SingleWords {
     }
 
     public Set<String> splitWord() {
-        wordList = file.readEpisode(1);
+        wordList = file.readEpisode(0);
 
         for (int i = 0; i < wordList.size(); i++) {
             String[] s = wordList.get(i).split("\\s");
 
             for (String w : s) {
-                w = w.replace("," ,  "").replace(".","").replace("?","");
-                if(w.length() == 1){
+                w = w.replace(",", "").replace(".", "").replace("?", "").replace("!","");
+                if (w.length() == 1) {
                     continue;
                 }
                 set.add(w);
             }
         }
-
         return set;
     }
 
-    public void saveSplitWordsToFile(){
+    //zapisywanie do pliku
+    public void saveSplitWordsToFile() {
         PrintWriter printWriter = null;
-        try{
+        try {
             printWriter = new PrintWriter(
                     new OutputStreamWriter(new FileOutputStream("plik.txt"), "UTF-8"));
-            for(String s : splitWord()){
+            for (String s : splitWord()) {
                 printWriter.println(s);
             }
             printWriter.flush();
@@ -58,7 +56,11 @@ public class SingleWords {
             printWriter.close();
         }
     }
-    public void showSetofSplitWords() {
+
+
+
+
+  /*  public void showSetofSplitWords() {
         set.forEach(System.out::println);
     }
 
@@ -71,5 +73,5 @@ public class SingleWords {
         }
 
         set.forEach(System.out::println);
-    }
+    }*/
 }

@@ -20,10 +20,9 @@ public class Main {
 
 
     singleWords.saveSplitWordsToFile();
+    SaveFinalFile saveFinalFile = new SaveFinalFile();
+    saveFinalFile.saveToFile();
 
-
-      //  singleWords.splitWord();
-     //   singleWords.showSetofSplitWords();
 
 
 
