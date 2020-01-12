@@ -1,3 +1,4 @@
+
 import com.sun.java.accessibility.util.Translator;
 
 import java.io.File;
@@ -19,7 +20,18 @@ public class Main {
 
 
 
-        singleWords.splitWord();
-        singleWords.showSetofSplitWords();
+  //      singleWords.splitWord();
+  //      singleWords.showSetofSplitWords();
+
+    DikiTranslation dikiTranslation = new DikiTranslation();
+    DikiTranslation dikiTranslation1 = new DikiTranslation();
+    dikiTranslation.translate("pork");
+    dikiTranslation1.translate("apple");
+
+        CollectWords collectWords = new CollectWords();
+        collectWords.addTranslation(dikiTranslation);
+        collectWords.addTranslation(dikiTranslation1);
+        System.out.println(collectWords);
+
     }
 }

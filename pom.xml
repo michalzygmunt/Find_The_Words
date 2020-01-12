@@ -22,9 +22,9 @@
 
 <dependencies>
     <dependency>
-        <groupId>com.google.cloud</groupId>
-        <artifactId>google-cloud-translate</artifactId>
-        <version>1.94.2</version>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>1.12.1</version>
     </dependency>
 
 </dependencies>
