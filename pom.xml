@@ -20,5 +20,13 @@
         </plugins>
     </build>
 
+<dependencies>
+    <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>google-cloud-translate</artifactId>
+        <version>1.94.2</version>
+    </dependency>
+
+</dependencies>
 
 </project>

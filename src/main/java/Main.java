@@ -1,3 +1,5 @@
+import com.sun.java.accessibility.util.Translator;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -14,7 +16,6 @@ public class Main {
         SingleWords singleWords = new SingleWords();
     //    singleWords.getWordList(1).forEach(System.out::println);
        // singleWords.convertToSet();
-
 
 
 
