@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -29,17 +30,34 @@ public class SingleWords {
             String[] s = wordList.get(i).split("\\s");
 
             for (String w : s) {
-                w = w.replace("," ,  "").replace(".","");
+                w = w.replace("," ,  "").replace(".","").replace("?","");
+                if(w.length() == 1){
+                    continue;
+                }
                 set.add(w);
             }
         }
 
-
-
         return set;
-
     }
 
+    public void saveSplitWordsToFile(){
+        PrintWriter printWriter = null;
+        try{
+            printWriter = new PrintWriter(
+                    new OutputStreamWriter(new FileOutputStream("plik.txt"), "UTF-8"));
+            for(String s : splitWord()){
+                printWriter.println(s);
+            }
+            printWriter.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } finally {
+            printWriter.close();
+        }
+    }
     public void showSetofSplitWords() {
         set.forEach(System.out::println);
     }

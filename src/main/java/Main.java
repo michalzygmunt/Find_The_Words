@@ -1,7 +1,7 @@
 
 import com.sun.java.accessibility.util.Translator;
 
-import java.io.File;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,16 @@ public class Main {
        // singleWords.convertToSet();
 
 
+    singleWords.saveSplitWordsToFile();
 
-  //      singleWords.splitWord();
-  //      singleWords.showSetofSplitWords();
 
-    DikiTranslation dikiTranslation = new DikiTranslation();
+      //  singleWords.splitWord();
+     //   singleWords.showSetofSplitWords();
+
+
+
+        //translation DIKI
+   /* DikiTranslation dikiTranslation = new DikiTranslation();
     DikiTranslation dikiTranslation1 = new DikiTranslation();
     dikiTranslation.translate("pork");
     dikiTranslation1.translate("apple");
@@ -31,7 +36,7 @@ public class Main {
         CollectWords collectWords = new CollectWords();
         collectWords.addTranslation(dikiTranslation);
         collectWords.addTranslation(dikiTranslation1);
-        System.out.println(collectWords);
+        System.out.println(collectWords);*/
 
     }
 }
