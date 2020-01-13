@@ -6,7 +6,8 @@ import java.util.Map;
 public class SaveFinalFile {
     CollectWords collectWords;
     Map<String, List<String>> translation;
-    public SaveFinalFile(){
+
+    public SaveFinalFile() {
         collectWords = new CollectWords();
         translation = new HashMap<>();
     }
@@ -20,9 +21,9 @@ public class SaveFinalFile {
         try {
             printWriter = new PrintWriter(
                     new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8"));
-            for(String i : translation.keySet()){
+            for (String i : translation.keySet()) {
                 //regex usuwa [] bracketsy ktore hashmapa domyslnie dodawala
-                printWriter.print(i + " - " + translation.get(i).toString().replaceAll("[\\[\\]]","") + "\n");
+                printWriter.print(i + " - " + translation.get(i).toString().replaceAll("[\\[\\]]", "") + "\n");
             }
             printWriter.flush();
         } catch (FileNotFoundException e) {

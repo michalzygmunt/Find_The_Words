@@ -5,10 +5,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CollectWords {
-
-
-
-
     Map<String, List<String>> translation;
     List<String> words;
 
@@ -16,9 +12,11 @@ public class CollectWords {
         translation = new HashMap<>();
         words = new ArrayList<>();
     }
+
     public Map<String, List<String>> getTranslation() {
         return translation;
     }
+
     public void addToHashMap(String searchText, List<String> words) {
         translation.put(searchText, words);
     }

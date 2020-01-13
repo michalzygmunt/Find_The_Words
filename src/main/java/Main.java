@@ -19,7 +19,7 @@ public class Main {
     //    singleWords.getWordList(1).forEach(System.out::println);
        // singleWords.convertToSet();
 
-    //tu dziala program
+
     singleWords.saveSplitWordsToFile();
     SaveFinalFile saveFinalFile = new SaveFinalFile();
     saveFinalFile.saveToFile();

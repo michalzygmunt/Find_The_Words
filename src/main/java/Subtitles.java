@@ -18,8 +18,6 @@ public class Subtitles {
     FilenameFilter filenameFilter;
     Path path;
 
-
-
     public Subtitles() {
 
         subtitle = new File("C:/Find_The_Words");
@@ -34,7 +32,6 @@ public class Subtitles {
             System.out.println(pathname);
         }
     }
-
 
     public String[] getSrt() {
         //filtr zwraca pliki z podana koncowka
@@ -80,7 +77,6 @@ public class Subtitles {
             return null;
         }
     }
-
 
     @Override
     public String toString() {

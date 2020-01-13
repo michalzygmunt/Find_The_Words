@@ -35,13 +35,11 @@ public class ReadFile {
     public List<String> readEpisode(int i) {
 
         try (Stream<String> stream = Files.lines(Paths.get(getFile(i).getName()))) {
-           List<String> result = stream.filter(s -> s.matches("^(?!www)[^\\d][\\w\\s]+.+"))
+            List<String> result = stream.filter(s -> s.matches("^(?!www)[^\\d][\\w\\s]+.+"))
                     .collect(Collectors.toList());
 
-           // result.forEach(System.out::println);
+            // result.forEach(System.out::println);
             return result;
-
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

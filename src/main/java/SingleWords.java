@@ -28,7 +28,7 @@ public class SingleWords {
             String[] s = wordList.get(i).split("\\s");
 
             for (String w : s) {
-                w = w.replace(",", "").replace(".", "").replace("?", "").replace("!","");
+                w = w.replace(",", "").replace(".", "").replace("?", "").replace("!", "");
                 if (w.length() == 1) {
                     continue;
                 }
@@ -56,9 +56,6 @@ public class SingleWords {
             printWriter.close();
         }
     }
-
-
-
 
   /*  public void showSetofSplitWords() {
         set.forEach(System.out::println);
