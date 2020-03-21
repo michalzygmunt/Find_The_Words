@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
@@ -20,20 +19,20 @@ public class Subtitles {
 
     public Subtitles() {
 
-        subtitle = new File("C:/Find_The_Words");
-        path = Paths.get("C:/Find_The_Words");
+        subtitle = new File("../Find_The_Words");
+        path = Paths.get("../Find_The_Words");
 
     }
 
-    public void getFiles() {
+  /*  public void getFiles() {
         pathnames = subtitle.list();
 
         for (String pathname : pathnames) {
             System.out.println(pathname);
         }
-    }
+    }*/
 
-    public String[] getSrt() {
+ /*   public String[] getSrt() {
         //filtr zwraca pliki z podana koncowka
         filenameFilter = new FilenameFilter() {
             public boolean accept(File file, String s) {
@@ -43,9 +42,9 @@ public class Subtitles {
         //uzycie filtra
         pathnames = subtitle.list(filenameFilter);
         return pathnames;
-    }
+    }*/
 
-    public File[] getSrtFiles() {
+   /* public File[] getSrtFiles() {
         try {
             filenameFilter = new FilenameFilter() {
                 public boolean accept(File file, String s) {
@@ -62,15 +61,16 @@ public class Subtitles {
             System.out.println(e.getMessage());
             return null;
         }
-    }
+    }*/
 
     //get Files using streams and lambda expressions
     public List<File> getSrtFilesUsingStreams() {
 
-        try (Stream<Path> walk = Files.walk(Paths.get("C:/Find_The_Words"))) {
+        try (Stream<Path> walk = Files.walk(Paths.get("../Find_The_Words"))) {
             List<File> files = walk.map(x -> x.toFile())
                     .filter(f -> f.getName().endsWith(".srt")).collect(Collectors.toList());
 
+            //zwraca liste plikow .srt z katalogu projektowego
             return files;
         } catch (Exception e) {
             e.printStackTrace();

@@ -16,16 +16,13 @@ public class Main {
         // subtitles.getSrt();
         //  subtitles.getSrtFiles();
         SingleWords singleWords = new SingleWords();
-    //    singleWords.getWordList(1).forEach(System.out::println);
-       // singleWords.convertToSet();
+        //    singleWords.getWordList(1).forEach(System.out::println);
+        // singleWords.convertToSet();
 
 
-    singleWords.saveSplitWordsToFile();
-    SaveFinalFile saveFinalFile = new SaveFinalFile();
-    saveFinalFile.saveToFile();
-
-
-
+        singleWords.saveSplitWordsToFile();
+        SaveFinalFile saveFinalFile = new SaveFinalFile();
+        saveFinalFile.saveToFile();
 
 
         //translation DIKI

@@ -5,9 +5,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DikiTranslation {
     String encoding = "UTF-8";
@@ -46,8 +44,15 @@ public class DikiTranslation {
             // System.out.println(words);
             return words;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("nie znaleziono slowka: " + searchText);
         }
         return words;
+    }
+
+    @Override
+    public String toString() {
+        return "DikiTranslation{" +
+                "words=" + words +
+                '}';
     }
 }

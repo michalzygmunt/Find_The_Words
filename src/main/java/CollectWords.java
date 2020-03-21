@@ -17,9 +17,12 @@ public class CollectWords {
         return translation;
     }
 
+
+    //dodawanie do HashMap listy słowa po angielsku search text i odpowiadającemu mu tłumaczeń
     public void addToHashMap(String searchText, List<String> words) {
         translation.put(searchText, words);
     }
+
 
     public void addTranslation(DikiTranslation dikiTranslation) {
         try {

@@ -8,7 +8,7 @@ public class SingleWords {
     ReadFile file;
     List<String> wordList;
     List<String> newList;
-    Set<String> set;
+    HashSet<String> set;
 
     public SingleWords() {
         wordList = new ArrayList<>();
@@ -21,18 +21,18 @@ public class SingleWords {
         return file.readEpisode(episode);
     }
 
-    public Set<String> splitWord() {
-        wordList = file.readEpisode(1);
+    public HashSet<String> splitWord() {
+        wordList = file.readEpisode(0);
 
         for (int i = 0; i < wordList.size(); i++) {
             String[] s = wordList.get(i).split("\\s");
 
-            for (String w : s) {
-                w = w.replace(",", "").replace(".", "").replace("?", "").replace("!", "");
-                if (w.length() == 1) {
+            for (String word : s) {
+                word = word.replace(",", "").replace(".", "").replace("?", "").replace("!", "");
+                if (word.length() == 1) {
                     continue;
                 }
-                set.add(w);
+                set.add(word);
             }
         }
         return set;
