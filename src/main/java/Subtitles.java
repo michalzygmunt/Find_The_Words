@@ -14,7 +14,7 @@ public class Subtitles {
 
     String[] pathnames;
     File subtitle;
-    FilenameFilter filenameFilter;
+  //  FilenameFilter filenameFilter;
     Path path;
 
     public Subtitles() {
@@ -22,6 +22,21 @@ public class Subtitles {
         subtitle = new File("../Find_The_Words");
         path = Paths.get("../Find_The_Words");
 
+    }
+
+    //get Files using streams and lambda expressions
+    public List<File> getSrtFilesUsingStreams() {
+
+        try (Stream<Path> walk = Files.walk(Paths.get("../Find_The_Words"))) {
+            List<File> files = walk.map(x -> x.toFile())
+                    .filter(f -> f.getName().endsWith(".srt")).collect(Collectors.toList());
+
+            //zwraca liste plikow .srt z katalogu projektowego
+            return files;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
   /*  public void getFiles() {
@@ -62,21 +77,6 @@ public class Subtitles {
             return null;
         }
     }*/
-
-    //get Files using streams and lambda expressions
-    public List<File> getSrtFilesUsingStreams() {
-
-        try (Stream<Path> walk = Files.walk(Paths.get("../Find_The_Words"))) {
-            List<File> files = walk.map(x -> x.toFile())
-                    .filter(f -> f.getName().endsWith(".srt")).collect(Collectors.toList());
-
-            //zwraca liste plikow .srt z katalogu projektowego
-            return files;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     @Override
     public String toString() {

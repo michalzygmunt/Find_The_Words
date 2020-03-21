@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public class SingleWords {
-    ReadFile file;
+ //   ReadFile file;
     List<String> wordList;
     List<String> newList;
     HashSet<String> set;
@@ -13,15 +13,15 @@ public class SingleWords {
     public SingleWords() {
         wordList = new ArrayList<>();
         newList = new ArrayList<>();
-        file = new ReadFile();
+  //      file = new ReadFile();
         set = new HashSet<>();
     }
 
-    public List<String> getWordList(int episode) {
+    public List<String> getWordList(ReadFile file, int episode) {
         return file.readEpisode(episode);
     }
 
-    public HashSet<String> splitWord() {
+    public HashSet<String> splitWord(ReadFile file) {
         wordList = file.readEpisode(0);
 
         for (int i = 0; i < wordList.size(); i++) {
@@ -39,12 +39,10 @@ public class SingleWords {
     }
 
     //zapisywanie do pliku
-    public void saveSplitWordsToFile() {
-        PrintWriter printWriter = null;
-        try {
-            printWriter = new PrintWriter(
-                    new OutputStreamWriter(new FileOutputStream("plik.txt"), "UTF-8"));
-            for (String s : splitWord()) {
+    public void saveSplitWordsToFile(ReadFile file) {
+        try (PrintWriter printWriter = new PrintWriter(
+                new OutputStreamWriter(new FileOutputStream("plik.txt"), "UTF-8"))) {
+            for (String s : splitWord(file)) {
                 printWriter.println(s);
             }
             printWriter.flush();
@@ -52,8 +50,6 @@ public class SingleWords {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        } finally {
-            printWriter.close();
         }
     }
 

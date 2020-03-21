@@ -4,23 +4,23 @@ import java.util.List;
 import java.util.Map;
 
 public class SaveFinalFile {
-    CollectWords collectWords;
+  //  CollectWords collectWords;
     Map<String, List<String>> translation;
 
     public SaveFinalFile() {
-        collectWords = new CollectWords();
+      //  collectWords = new CollectWords();
         translation = new HashMap<>();
     }
 
-    public void saveToFile() throws InterruptedException {
+
+
+    public void saveToFile(CollectWords collectWords){
         //pobranie instancji z hashmapa
-        collectWords = ReadSplitWordsFile.readFile();
+     //   collectWords = collectWords.readFile();
         translation = collectWords.getTranslation();
 
-        PrintWriter printWriter = null;
-        try {
-            printWriter = new PrintWriter(
-                    new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8"));
+        try (PrintWriter printWriter = new PrintWriter(
+                new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8"))) {
             for (String i : translation.keySet()) {
                 //regex usuwa [] bracketsy ktore hashmapa domyslnie dodawala
                 printWriter.print(i + " - " + translation.get(i).toString().replaceAll("[\\[\\]]", "") + "\n");
@@ -30,8 +30,6 @@ public class SaveFinalFile {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        } finally {
-            printWriter.close();
         }
     }
 

@@ -1,5 +1,7 @@
 
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.sun.java.accessibility.util.Translator;
+import converters.WordsJsonConverter;
 
 import java.io.*;
 import java.net.URL;
@@ -10,19 +12,29 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String args[]) throws InterruptedException {
 
-        List<String> lista = new ArrayList<>();
-        Subtitles subtitles = new Subtitles();
+
+        SingleWords singleWords = new SingleWords();
+        CollectWords collectWords = new CollectWords();
+        ReadFile readFile = new ReadFile();
+        collectWords = collectWords.translate();
+
+        singleWords.saveSplitWordsToFile(readFile);
+        SaveFinalFile saveFinalFile = new SaveFinalFile();
+        saveFinalFile.saveToFile(collectWords);
+
+
+
+        final String wordsJsonFilename = "words.json";
+        WordsJsonConverter wordsJsonConverter = new WordsJsonConverter(wordsJsonFilename);
+        wordsJsonConverter.toJson(collectWords.getTranslation());
+
+
+
         // subtitles.getFiles();
         // subtitles.getSrt();
         //  subtitles.getSrtFiles();
-        SingleWords singleWords = new SingleWords();
         //    singleWords.getWordList(1).forEach(System.out::println);
         // singleWords.convertToSet();
-
-
-        singleWords.saveSplitWordsToFile();
-        SaveFinalFile saveFinalFile = new SaveFinalFile();
-        saveFinalFile.saveToFile();
 
 
         //translation DIKI
